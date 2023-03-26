@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PokemonType } from '../models/pokemon';
+import { PokemonType } from '../../models/pokemon';
 
 @Component({
   selector: 'app-ng-for',

@@ -1,7 +1,9 @@
 <ng-container *ngIf="pokemon.isCool; then isCool; else isntCool"></ng-container>
-<ng-template #isCool
-  ><h3>{{ pokemon.name }} is cool!!</h3></ng-template
->
-<ng-template #isntCool
-  ><h3>{{ pokemon.name }} isnt cool</h3></ng-template
->
+<ng-template #isCool>
+  <h3>{{ pokemon.name }} is cool!!</h3>
+  <button (click)="onToogle()">toogle</button>
+</ng-template>
+<ng-template #isntCool>
+  <h3>{{ pokemon.name }} isnt cool</h3>
+  <button (click)="onToogle()">toogle</button>
+</ng-template>

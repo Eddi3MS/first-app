@@ -12,8 +12,62 @@
       <td>{{ pokemon.name }}</td>
       <td>{{ pokemon.type }}</td>
       <td>
-        <app-pokemon-detail [pokemon]="pokemon"></app-pokemon-detail>
+        <app-pokemon-detail
+          [pokemon]="pokemon"
+          (toogleIsCool)="toogleIsCool($event)"
+        ></app-pokemon-detail>
       </td>
     </tr>
   </tbody>
 </table>
+
+<pre><code>  &lt;table border style="border-collapse: collapse"&gt;
+  &lt;thead&gt;
+    &lt;th&gt;Index&lt;/th&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Type&lt;/th&gt;
+    &lt;th&gt;Cool&lt;/th&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr *ngFor="let pokemon of pokemons; let i = index"&gt;
+      &lt;td&gt;{{'{{'}} pokemon.id }}&lt;/td&gt;
+      &lt;td&gt;{{'{{'}} pokemon.name }}&lt;/td&gt;
+      &lt;td&gt;{{'{{'}} pokemon.type }}&lt;/td&gt;
+      &lt;td&gt;
+        &lt;app-pokemon-detail
+          [pokemon]="pokemon"
+          (toogleIsCool)="toogleIsCool($event)"
+        &gt;&lt;/app-pokemon-detail&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;/table&gt;
+</code></pre>
+
+<p>
+  1 - we are passing props to app-pokemon-detail, we're giving him the pokemon
+  object to work with. In react, we would receive it as an argument of the
+  functional component, in angular however, we have to declare it inside the
+  class, using the @Input() decorator, like this:
+</p>
+<pre><code>  export class PokemonDetailComponent implements OnInit {{'{'}}
+    @Input()
+    pokemon!: PokemonType;
+  }</code></pre>
+
+<p>
+  2 - we are passing a function trought props to app-pokemon-detail, we're
+  giving him the toogleIsCool to work with. In react, we would also receive it
+  as an argument of the functional component, in angular however, we have to
+  declare it inside the class, using the @Output() decorator and instanciate a
+  new EventEmiter(), like this:
+</p>
+
+<pre><code>  export class PokemonDetailComponent implements OnInit {{'{'}}
+    @Output()
+    toogleIsCool: EventEmitter&lt;number&gt; = new EventEmitter();
+
+    onToogle() {{'{'}}
+      this.toogleIsCool.emit(this.pokemon.id);
+    }
+  }</code></pre>

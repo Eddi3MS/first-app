@@ -32,5 +32,18 @@ export class PokemonListComponent implements OnInit {
     ];
   }
 
+  toogleIsCool(pokemonId: number) {
+    this.pokemons = this.pokemons.map((pokemon) => {
+      if (pokemon.id === pokemonId) {
+        return {
+          ...pokemon,
+          isCool: !pokemon.isCool,
+        };
+      }
+
+      return pokemon;
+    });
+  }
+
   ngOnInit(): void {}
 }

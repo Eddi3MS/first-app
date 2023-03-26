@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PokemonType } from 'src/app/models/pokemon';
 
 @Component({
@@ -10,7 +10,14 @@ export class PokemonDetailComponent implements OnInit {
   @Input()
   pokemon!: PokemonType;
 
+  @Output()
+  toogleIsCool: EventEmitter<number> = new EventEmitter();
+
   constructor() {}
+
+  onToogle() {
+    this.toogleIsCool.emit(this.pokemon.id);
+  }
 
   ngOnInit() {}
 }
