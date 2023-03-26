@@ -1,0 +1,44 @@
+<h2>8 - ngClass and [class]</h2>
+
+<p>
+  works like css modules. Accessing classes inside the css file with dot
+  notation, but it is only applied if the condition that follows evaluate to
+  true.
+</p>
+
+<pre><code>  [class.isCool]="pokemon.isCool"</code></pre>
+
+<p>
+  With ngClass, the class is the 'key', and the value is what will be evaluated
+  to apply or not the class, like:
+</p>
+
+<pre><code>  [ngClass]="{{ "{" }}isCool: pokemon.isCool{{ "}" }}",</code></pre>
+
+<span
+  >note: you can apply different classes based in different conditions with
+  comma (,) like an normal object with keys and values, only the keys are
+  classes that will be applied if the values evaluate to true, like:</span
+>
+
+<pre><code>  [ngClass]="{{"{"}}isntCool: !pokemon.isCool, cool: pokemon.isCool {{ "}" }}"</code></pre>
+
+<table border style="border-collapse: collapse">
+  <thead>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Type</th>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let pokemon of pokemons; let i = index"
+      [ngClass]="{ isntCool: !pokemon.isCool, cool: pokemon.isCool }"
+    >
+      <td>{{ pokemon.id }}</td>
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.type }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />

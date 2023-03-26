@@ -1,0 +1,38 @@
+<h2>10.0 - Creating a Module</h2>
+
+<p>run the cli command:</p>
+<pre><code> ng generate module pokemon-base </code></pre>
+
+<p>
+  it will create a folder &lt;pokemon-base&gt; with an file
+  &lt;pokemon-base.module.ts&gt;
+</p>
+
+<hr />
+
+<h2>10.1 - Creating a component</h2>
+<p>run this cli command:</p>
+<pre><code>ng generate component pokemon-base/pokemon-list --module=pokemon-base/pokemon-base.module.ts</code></pre>
+
+<p>now export the component in pokemon-base.module decorator:</p>
+
+<pre><code>  @NgModule{{'({'}}
+    declarations: [PokemonListComponent],
+    imports: [CommonModule],
+    exports: [PokemonListComponent],
+  '}}
+</code></pre>
+
+<hr />
+
+<h2>10.2 - Import the new module into app.module.ts</h2>
+
+<pre><code>  @NgModule{{'({'}}
+    declarations: [AppComponent],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, PokemonBaseModule],
+    providers: [],
+    bootstrap: [AppComponent],
+  '}}
+</code></pre>
+
+<hr />

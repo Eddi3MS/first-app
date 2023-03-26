@@ -1,1 +1,19 @@
-<p>pokemon-list works!</p>
+<h3>POKEMON LIST COMPONENT</h3>
+<table border style="border-collapse: collapse">
+  <thead>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Cool</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pokemon of pokemons; let i = index">
+      <td>{{ pokemon.id }}</td>
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.type }}</td>
+      <td>
+        <app-pokemon-detail [pokemon]="pokemon"></app-pokemon-detail>
+      </td>
+    </tr>
+  </tbody>
+</table>

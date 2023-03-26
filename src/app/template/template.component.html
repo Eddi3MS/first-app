@@ -1,0 +1,17 @@
+<h2>5 - #Template</h2>
+
+<div class="flex">
+  <button #pokemonName (click)="handleChangeColor(pokemonName)">
+    change color
+  </button>
+</div>
+<pre><code>  &lt;button #pokemonName (click)="handleChangeColor(pokemonName)"&gt;change color&lt;/button&gt;
+</code></pre>
+
+<p>
+  Template is similar to useRef from react.js, it get the reference to the dom
+  element itself, to be manipulated.. in this case changing the background
+  color.
+</p>
+
+<hr />

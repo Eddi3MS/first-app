@@ -1,0 +1,19 @@
+<h2>6 - *ngIf</h2>
+
+<ng-container
+  *ngIf="text.length; then textInput; else noTextInput"
+></ng-container>
+<ng-template #textInput
+  ><h3>{{ text }}</h3></ng-template
+>
+<ng-template #noTextInput><h3>input some text</h3></ng-template>
+
+<input type="text" [value]="text" (input)="handleChange($event)" />
+
+<pre><code>
+  &lt;ng-container *ngIf="text.length; then textInput; else noTextInput"&gt;&lt;/ng-container&gt;
+  &lt;ng-template #textInput&gt;{{'{{'}} text {{'}}'}}&lt;/ng-template&gt;
+  &lt;ng-template #noTextInput&gt;input some text&lt;/ng-template&gt;
+</code></pre>
+
+<hr />

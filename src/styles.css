@@ -17,6 +17,9 @@ body {
 
 pre {
   margin-block: 0.5rem;
+  padding: 1rem 0.5rem;
+  background-color: #202024;
+  color: #f6f6f8;
 }
 
 hr {

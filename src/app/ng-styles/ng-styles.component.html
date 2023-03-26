@@ -1,0 +1,42 @@
+<h2>9 - ngStyle and [style]</h2>
+
+<p>
+  accessing the propertie style, like [style] and passing css like normal inline
+  css:
+</p>
+
+<pre><code>  [style]=" !pokemon.isCool ? 'background: blue; color: white' : ''"</code></pre>
+
+<p>or accessing a property in style, like:</p>
+
+<pre><code>  [style.background]=" !pokemon.isCool ? 'blue' : 'red'"</code></pre>
+
+<p>And you can do it with ternary, like:</p>
+
+<pre><code>  [style]=" !pokemon.isCool ? 'background: blue; color: white' : 'background: red'"</code></pre>
+
+<p>using ngStyle is more like the react.js style inline syntax:</p>
+
+<pre><code>  [ngStyle]="{{'{'}}'backgroundColor': pokemon.isCool ? 'red' : 'blue'{{'}'}}"</code></pre>
+
+<table border style="border-collapse: collapse">
+  <thead>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Type</th>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let pokemon of pokemons; let i = index"
+      [style]="
+        !pokemon.isCool ? 'background: blue; color: white' : 'background: red'
+      "
+    >
+      <td>{{ pokemon.id }}</td>
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.type }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
