@@ -11,11 +11,14 @@
 body {
   padding: 1.5rem;
   font-family: "Montserrat", sans-serif;
+  max-width: 768px;
+  margin-inline: auto;
 }
 
 pre {
   margin-block: 0.5rem;
 }
+
 hr {
   margin-block: 1.5rem;
 }
@@ -33,4 +36,21 @@ p {
 td,
 th {
   padding: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+input {
+  padding: 0.5rem;
+  font-family: inherit;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
 }
